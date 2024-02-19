@@ -2,7 +2,7 @@
 
 (defn append-letter
   "Appends letter to the end of the seq if the last letter of string is not the same"
-  [^"java.lang.String" seq letter]
+  [^String seq letter]
   {:pre [(some? seq) (some? letter)]}
   (
     if (.endsWith seq letter)
