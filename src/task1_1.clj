@@ -2,7 +2,7 @@
 
 (defn append-letter
   "Appends letter to the end of the seq if the last letter of string is not the same"
-  [^String seq letter]
+  [seq letter]
   {:pre [(some? seq) (some? letter)]}
   (if (.endsWith seq letter) nil (str seq letter)))         ;returning appended string if the last char differs from the new one
 
@@ -34,6 +34,3 @@
          (concat (append-seq seq-extensions alphabet n (+ cur-len 1)) (append-seq (rest sequences) alphabet n cur-len))))))
 
   ([alphabet n] (append-seq (list "") alphabet n 0)))       ;initial function call
-
-(let [alphabet (list "a", "b", "c")]
-  (println (append-seq alphabet 3)))
