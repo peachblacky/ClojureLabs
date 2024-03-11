@@ -30,7 +30,11 @@
      (if (= cur-len n)                                      ;first recursion branch exit condition
        sequences
 
-       (let [seq-extensions (append-letters (first sequences) alphabet)]
-         (concat (append-seq seq-extensions alphabet n (+ cur-len 1)) (append-seq (rest sequences) alphabet n cur-len))))))
+       (let [unique-alphabet (set alphabet)
+             seq-extensions (append-letters (first sequences) unique-alphabet)]
+         (concat (append-seq seq-extensions unique-alphabet n (+ cur-len 1)) (append-seq (rest sequences) unique-alphabet n cur-len))))))
 
   ([alphabet n] (append-seq (list "") alphabet n 0)))       ;initial function call
+
+
+(println (append-seq (list "a") 2))
